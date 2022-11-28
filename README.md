@@ -5,6 +5,7 @@
 React.js / Vue.js / Angular.js / Jquery 등의 프레임워크와 라이브러리가 제공되지 않는 본질적인 javascript !
 
 <h2>🧐 In this repository ... </h2>
-####🖥 Review and Summary of Nomad Coders lecture- <바닐라 JS로 크롬 앱 만들기>
 
-####🖥 Do assignments of this lecture
+#### 🖥 Review and Summary of Nomad Coders lecture- <바닐라 JS로 크롬 앱 만들기>
+
+#### 🖥 Do assignments of this lecture
