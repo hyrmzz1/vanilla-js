@@ -1,0 +1,16 @@
+/* style은 css에 작성하도록 하자. */
+
+h1{
+    color: rebeccapurple;
+    transition: color 0.3s ease-in-out;
+    /*transition 작성위치는 여기!
+    state가 없는 곳에 작성한다. state란 action, hover, focus 등..*/
+}
+
+.clicked{
+    color:rgb(250, 162, 39)
+}
+
+.sexy-font{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
