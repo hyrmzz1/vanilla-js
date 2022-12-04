@@ -1,24 +1,23 @@
 vanilla JS
 
 #1
-we will clone "모멘텀"!!! //momentum?
+we will clone "모멘텀"!!!
+//momentum? Chrome 확장 프로그램.
 
 why JS?
-- 웹사이트 말고도 쓰이는 곳 아주 많음
-- 프론트앤드에서 쓰이는 유일한 프론트엔드 언어 >> 어디서나 JS를 사용한다.
+- 웹사이트 말고도 쓰이는 곳 아주 많음.
+- 프론트엔드에서 쓰이는 유일한 프로그래밍 언어 >> 어디서나 JS를 사용한다.
+// html 와 css 는 프로그래밍 언어가 아니다.
 - 모든 브라우저에 내장 >> 물량면에서 굉장히 강력
 - 백엔드까지 만들 수 있음!
-- 3D stuff 하기에 최적의 언어. 실시간으로 무언가를 하고싶다면! => 비디오게임도 만들 수 있다.
-- 머신러닝도 가능
- 
-suuuuuuuuuper sexy
-I'm ready!!ㅠ ㅠ
+- 3D stuff 하기에 최적의 언어. 실시간으로 무언가를 하고싶다면! >> 비디오게임도 만들 수 있다.
+- 머신러닝도 가능함.
 
 #2.0
 JS는 웹사이트의 콘솔창에서 확인할 수 있음.
--> 입력도 가능하지만, 불편. so VSC에서 코드작성한다.
+-> 입력도 가능하지만, 불편. 따라서 VSC에서 코드작성한다.
 
-HTML 파일에서 CSS와 JS 모두를 가져온다 //HTML은 CSS엔진과 JS엔진 모두를 가동시킨다!
+HTML 파일에서 CSS와 JS 모두를 가져온다. // HTML은 CSS엔진과 JS엔진 모두를 가동시킨다!
 => css 는 head에서 link:css 입력해서 가져오기 //<link rel="stylesheet" href="style.css">의 단축어
 => javascript는 body 맨 아래에서 <script src="app.js"></script> 작성.
 
@@ -28,23 +27,25 @@ HTML 파일에서 CSS와 JS 모두를 가져온다 //HTML은 CSS엔진과 JS엔�
 js는 숫자를 안다.
 int float -> 섞어서 연산도 가능.
 text 입력법은 "text" 또는 'text' //2와 "2"는 다르다.
-string //처음부터 끝까지 문자로 이루어진거. "my name is hyerim"
+string //처음부터 끝까지 문자로 이루어져 있는 것. "my name is hyerim"
 
 #2.2 Variables
 console.log(); //괄호 안의 것을 콘솔로 출력(log). 괄호 안엔 숫자 문자 다 들어갈 수 있다.
 
 JS는 위에서 아래로 코드를 읽는다.
 
-variables //값을 저장 및 유지
+variable //값을 저장 및 유지
 const //constant; 바뀌지 않음. 유지. 변수 선언
-const a = 5; //a라는 변수에 5라는 value 줌.
-const myName = "rim"; //변수에 띄어쓰기 금지. JS에선 camel case(iLikeMara)로 변수 작성, python에선 snake case(i_like_mara)로 변수 작성.
+const a = 5; //a라는 변수에 5라는 value 할당.
+const myName = "rim"; //변수에 띄어쓰기 금지.
+
+JS에선 camel case(iLikeMara)로 변수 작성, python에선 snake case(i_like_mara)로 변수 작성.
 
 #2.3 const and let
 let 으로도 변수를 만들 수 있다.
 
-- const-> 상수. 값이 바뀔 수 없음. 재선언 금지, 재할당 금지
-- let-> 재선언 금지, 재할당 가능
+- const-> 상수. 값이 바뀔 수 없음. 재선언 금지, 재할당 금지.
+- let-> 재선언 금지, 재할당 가능.
 - var-> 재선언 가능, 재할당 가능. //shit point..
 
 *재선언이란?
@@ -56,60 +57,71 @@ let a = b;
 a = c; (O)
 
 variable 값을 업데이트 할 생각이 있다면 let을 사용하자.
-let으로 변수 선언 후 이후에 변수 = ~~; 로 value 업데이트 가능! let은 그냥 변수 생성만 하는 느낌.
+let으로 변수 선언 후, 이후에 변수 = ~~; 로 value 업데이트 가능! let은 그냥 변수 생성만 하는 느낌.
 const로 변수 선언 후 아래에서 value를 새로운 값으로 업데이트하면 에러뜸.
 
-기본적으로-> const, 변수 업데이트 해야하면-> let 사용.
+var //최초의 변수선언 operation.
+// 언제나 값 업데이트 할 수 있으나 이 변수가 상수인지, 값을 언제든 업데이트 가능한 변수인지 예측 불가.
+// 실수로 값 업데이트해도 알아차릴 수 없는 구닥다리 함수. 사용 지양!
 
-var //최초의 변수선언 operation. 언제나 값 업데이트 할 수 있으나 이 변수가 상수인지, 값을 언제든 업데이트 가능할지 예측할 수 없고 실수로 값 업데이트해도 알아차릴 수 없는 구닥다리 함수. 사용 지양
-!
-
-always const, sometimes let, never var
+always const, sometimes let(), never var
+// 업데이트 필요한 변수만 let
 
 #2.4 boolean
-- true & false // "true" "false"는 string이다. //python에선 True False로 나타냄. 앞자리 대문자로!
-- null // 변수에 아무것도 없음을 뜻함. true/false=> 변수에 true, false 라는 값이 있는 것 //const a = null;
-- undefined //let something; => 값 아직 안들어온거. 변수는 정의되었으나 value 할당 안된 것.
-null-> 자연적으로 발생하지 않음. 값이 "없다" 라고 의도적으로 표현해주는 것!!
+- true & false
+// "true", "false"는 string이다.
+// python에선 True False로 나타냄. 앞자리 대문자로!
+- null
+// 변수에 아무것도 없음을 뜻함.
+// true / false=> 변수에 true, false 라는 값이 있는 것
+// const a = null;
+- undefined
+// let something; => 값 아직 안들어온거. 변수는 정의되었으나 value 할당 안된 것.
+
+null // 자연적으로 발생하지 않음. 값이 "없다"고 의도적으로 표현해주는 것!!
 
 #2.5 Arrays
-how can i organize data?!? => 배열!
+how can I organize data?!? => 배열!
 
-const nonsene = [1, 2, "hi", false, null, undefined, 8.32]
+const nonsense = [1, 2, "hi", false, null, undefined, 8.32];
 console.log(nonsense); 하면 콘솔에 배열이 뜬다.
 
 //get element from array
 const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
-console.log(daysOfWeek[5]); //sat 출력. 컴퓨터는 0부터 카운팅.
-console.log(daysOfWeek[7]); //undefined
+console.log(daysOfWeek[5]); // sat 출력. 컴퓨터는 0부터 카운팅.
+console.log(daysOfWeek[7]); // undefined
 
-add one more element to the array
-daysOfWeek.push(); //맨 뒤에 value 추가됨.
+//add one more element to the array
+daysOfWeek.push(); // ()안에 value 넣어주면 맨 뒤에 value 추가됨.
+
+nonsense.push("메롱");
+console.log(nonsense); // [1, 2, "hi", false, null, undefined, 8.32, "메롱"]
 
 #2.6 Objects
 하나의 entity에 관한 변수들 묶어줌(?)
 property를 가진 데이터 다루게 해줌.
 
-const girlName = "hyerim";
-const girlAge = 24;
-const girlPretty = true;
+const myName = "hyerim";
+const myAge = 24;
+const isCool = true;
 ↓
 {안에 property(특성)을 작성한다.}
-const girl = {
+const r = {
 	name: "hyerim",
 	age: 24,
-	pretty: true,
+	cool: true,
 }
 
-console.log(girl); //{}안의 내용 다 출력
-console.log(girl.name); //hyerim
-console.log(girl["name"]); //위와 같음.
-girl.age = 22; //age property value 바뀜
+console.log(r); //{}안의 내용 다 출력
+console.log(r.name); //hyerim
+console.log(r["name"]); //위와 같음.
+r.age = 22; //age property value 바뀜
 
-object 안의 constant -> update 가눙 //object 자체가 constant 이기 떄문! constant 안의 요소는 업뎃가능.
+object 안의 property들은 update 가능.
+// object 자체가 constant 이기 때문! constant 안의 요소는 업뎃 가능함.
 
 #2.7 - #2.8 functions
-코드를 캡슐화해 반복 가능하게 해줌.
+function은 코드를 캡슐화해 반복 가능하게 해줌.
 
 function funcName(){	// ()는 우리가 function을 실행하는 방법!! 
 	console.log("hello");
@@ -117,26 +129,30 @@ function funcName(){	// ()는 우리가 function을 실행하는 방법!!
 }
 
 funcName();	// function 실행
+
 -------------------
-인수 (argument) 사용하기
+인수(argument) 사용하기
+
 function funcName(nameOfPerson, ageOfPerson){
 	console.log("I'm" + nameOfPerson + "and I'm" + ageOfPerson);
 }
 
 funcName("Rim", 24);	// I'm Rim and I'm 24
-funcName("Hun", 27);	// I'm Hun and I'm 27 	괄호 안 데이터의 순서 중요하다.
+funcName("Hun", 27);	// I'm Hun and I'm 27
+// 괄호 안 데이터의 순서 중요
+
 -------------------
 function+object
 
 const boyfriend = {
 	name: "hun",
 	sayILY(){
-		console.log("Love ya!");
+		console.log("Love ya!<3");
 	},
 };
 
 console.log(boyfriend.name);	// hun
-boyfriend.sayILY();		// Love ya!
+boyfriend.sayILY();		// Love ya!<3
 }
  -  -  -  -  -  -  - 
 const boyfriend = {
@@ -149,18 +165,22 @@ const boyfriend = {
 boyfriend.sayILY("<3");	// Love ya! <3
 boyfriend.sayILY(":)");	// Love ya! :)
 }
+-------------------
 
 #2.9 recap
 const=> 값 재할당 금지, let=> 값 재할당 가능.
+
 ex)
 const isRimHungry = true;
-isRimHungry = false;	// (X) const는 값 재할당 금지!! isRimHungry를 let으로 선언시키면 가능.
+isRimHungry = false;	// (X) const는 값 재할당 금지!
+			// isRimHungry를 let으로 선언시키면 가능.
 
-null		// 비어있음을 공표! <<비어있음>> 이 들어있다.
+null		// 비어있음을 공표! <<비어있음>>이란 값이 들어있다.
 undefined	// 변수는 있지만 값이 전혀 없음
 
 배열; 데이터 정리법
-const arrayName = [1, 2, 3, true, null, "메롱", hey];	//위에 const hey = ~~; 로 이미 정의된 함수라면 가눙
+const arrayName = [1, 2, 3, true, null, "메롱", hey];
+// 배열 안의 값 hey가 위에 const hey = ~~; 로 이미 정의된 함수라면 배열에 들어갈 수 있음.
 
 console.log(arrayName);	// [1, 2, 3, true, null, "메롱", hey]
 arrayName[2] = "햄림";
@@ -180,6 +200,7 @@ me.name = "Hyerim Yang";
 console.log(me);		// {name: "Hyerim Yang", age: 24}
 me.cool = true;
 console.log(me);		// {name: "Hyerim Yang", age: 24, cool: true}
+
 -------------------
 function
 function plus(a, b){ 
@@ -189,17 +210,18 @@ function plus(a, b){
 plus(10, 7);
 plus(35.3221, 48390;
 plus(1, 2, 47, 992, 341, 4);	//1+2만 실행됨. 인수 개수만큼만!
-dd
+
 #2.11 returns
 함수 안에 return 코드 작성한다면 함수 호출시 그게 출력된다.
-function이 바깥과 소통하는(?) 방법.
+function이 외부와 소통하는(?) 방법.
 
 #2.12 recap
-왜 console.log가 아닌 return을 써야하는가? function 외부에서 value 갖기 위함
-console.log는 그냥 콘솔에 값을 나타내는 것. function 외부에서는 console.log로 나타냈던 value를 얻지 못함.
+왜 console.log가 아닌 return을 써야하는가? function 외부에서 value 갖기 위함.
+console.log는 그냥 콘솔에 값을 나타내는 것.
+따라서 function 외부에서는 console.log로 나타냈던 value를 얻지 못함.
 return 사용시 variable에 function을 할당하면 그 function의 return 값을 가질 수 있게 된다.
 
-return 다음에 작성된 코드는 작동하지 않음!!	//rule of JS
+return 다음에 작성된 코드는 작동하지 않음!!	// rule of JS
 
 #2.13 conditionals ;조건문
 parseInt()	// string => number
@@ -212,12 +234,13 @@ console.log(age, parseInt(age));		// parseInt() ; variable의 type 변경하는 
 *function은 내부에서 외부로 실행된다.
 
 #2.14 conditionals 2
-isNaN() 	//boolean 통해서 argument가 NaN인지 판별. true=> 인자가 숫자 아님(Not a number), false=> 인자가 숫자임.
+isNaN() 	// boolean 통해서 argument가 NaN인지 판별.
+	// true=> 인자가 숫자 아님(Not a number), false=> 인자가 숫자임.
 
 if(condition){
-	/// condition == true 일때 실행되는 코드
+	// condition == true 일때 실행되는 코드
 }else{
-)	/// condition == false 일때 실행되는 코드
+)	// condition == false 일때 실행되는 코드
 }
  -  -  -  -  -  -  - 
 const age = parseInt(prompt("How old are you?"));
@@ -233,14 +256,15 @@ if(isNaN(age)){	// 입력받은 argument(인수) age가 숫자가 아니라면
 ||	// or
 
 조건이 여러개일 때 ~ else if 문.
+
 * if-else문 이용하여 더 복잡한 나이계산기 만들어보기
 const age = parseInt(prompt("How old are you?"));
 
 if(isNaN(age)){	// 입력받은 argument(인수) age가 숫자가 아니라면
 	console.log("Please write a number");
-} else if(age<18){
+} else if(age<18){	//입력받은 argument(인수) age가 숫자이고 18 미만의 값이라면
 	console.log("you're too young");
-else{		// 입력받은 argument(인수) age가 숫자라면
+else{		// 입력받은 argument(인수) age가 숫자이고 18 이상의 값이라면
 	console.log("Thank you for writing your age.");
 }
 
