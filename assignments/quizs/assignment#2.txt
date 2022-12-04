@@ -1,0 +1,19 @@
+2 => int / 2.2 => float / "2", '2' => string / true => boolean, "true" => string / null !== undefined
+
+변수는 숫자 뿐 아니라 문자도 저장할 수 있다.
+
+alwats const, sometimes let! const는 변수 선언 후 재선언, 재할당 금지. let는 변수 선언 후 재선언 금지, 재할당 가능.
+
+*재선언?
+let a = b;
+let a = c; (X)
+
+*재할당? => 값 업데이트 가능하단 말씀!
+let a = b;
+a = c; (O)
+
+array; to organize values on a list. arr[0] 은 첫번째 element를 나타낸다. 
+
+player라는 object의 name property access 하는 법
+-> player.name
+-> player["name"]
