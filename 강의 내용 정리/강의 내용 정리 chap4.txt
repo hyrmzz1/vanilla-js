@@ -1,12 +1,18 @@
 #4.0
 html에서 form과 그 내부에 input, button 생성하고, js가 처리하도록 해보자
+=>querySelector 사용하여 js에 form 및 input, btn 끌고와야 함.
 
-#4.1
+btn 클릭할 때마다 (click 이벤트 적용) 콘솔이나 알림으로 뜨도록 해보자.
+
+input value를 얻기 위해선?
+console.dir 사용하여 input 안에 value 라는 property가 있단걸 확인하는게 우선.
+
+#4.1 username의 유효성을 검사하자.
 const loginInput = document.querySelector("#login-form input");
 const loginButton = document.querySelector("#login-form button");
 const username = loginInput.value;	//input에 작성된 값 가져오기
 
-if-else if-else 문을 통해 입력받은 username의 작성유무, 길이 등을 판별 및 alert 등을 표시할 수 있다. 
+if-else if-else 문을 통해 입력받은 username의 작성유무, 길이 등을 판별하여 alert 등을 표시할 수 있다. 
 String의 길이를 구하는 법? stringName.length
 but 이런건 html에서 자체적으로 required나 maxlength 등을 통해 할 수 있다.
 
