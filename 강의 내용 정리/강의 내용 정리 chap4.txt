@@ -8,17 +8,25 @@ input value를 얻기 위해선?
 console.dir 사용하여 input 안에 value 라는 property가 있단걸 확인하는게 우선.
 
 #4.1 username의 유효성을 검사하자.
+1) username은 반드시 작성되어 있어야 하고
+2) 길이 제한도 걸자.
+
 const loginInput = document.querySelector("#login-form input");
 const loginButton = document.querySelector("#login-form button");
 const username = loginInput.value;	//input에 작성된 값 가져오기
 
-if-else if-else 문을 통해 입력받은 username의 작성유무, 길이 등을 판별하여 alert 등을 표시할 수 있다. 
+if-else if-else 문을 통해 입력받은 username의 작성유무, 길이 등을 판별하여 alert 등을 표시할 수 있다.
+// loginInput.value는 반복적으로 사용되므로 function 내부에서 변수화하자.
+
 String의 길이를 구하는 법? stringName.length
-but 이런건 html에서 자체적으로 required나 maxlength 등을 통해 할 수 있다.
+
+그러나 input의 작성유무, 길이 등은 html에서 자체적으로 required나 maxlength 등을 통해 할 수 있다.
+// 위와 같은 input의 유효성 검사를 작동시키기 위해서는 input 이 form tag 내부에 있어야 한다.
 
 form이 submit되면 웹사이트가 새로고침 된다.
-"form 안에서 엔터를 누르고 input이 더이상 존재하지 않는다면 자동으로 submit된다."
-=>btn의 click이 아닌 submit에 신경써보자 =>submit을 막아야 한다!!
+"form 안에서 엔터를 누르고 input이 더이상 존재하지 않는다면 자동으로 submit된다."	// lec#4.1 commit 주석 참고
+-> btn의 click이 아닌 submit에 신경써보자
+-> submit을 막아야 한다!!
 
 #4.2 - 이해 더 필요
 (btn 말고) submit이란 event의 발생여부 확인해서 막아버리자!	//submit은 엔터를 누르거나 버튼을 클릭할 때 발생한다.
