@@ -1,0 +1,7 @@
+/* #~~ -> id / .~~ -> class */
+.hidden{
+    display: none;
+}
+/* 
+display: none;와 visibility: none; 둘다 보이지 않게 되나
+visibility: none;은 공간은 그대로 남겨져있고, display: none;은 공간까지 사라짐.  */

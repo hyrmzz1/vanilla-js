@@ -7,15 +7,26 @@ const loginInput = loginForm.querySelector("input");
 const loginBtn = loginForm.querySelector("button");
 */
 const link = document.querySelector("a");
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";  // hidden 반복적으로 쓰이니 변수화. 오타날 수 있으니까.
+/* 변수명을 대문자로 쓰는 경우?
+1) string만 포함된 변수
+2) 중요한 변수가 아닐 때 (loginForm, loginInput 같은 것들은 중요한 변수.) */
 
 // querySelector 안에선 CSS selector 방식으로 검색. #~~ -> id / .~~ -> class
 
 function onLoginSubmit(event){
     event.preventDefault(); // 브라우저의 기본 작동을 멈춰줌 (= 새로고침)
     console.log(event);     // 새로고침 막힌 상태이므로 이 코드 실행됨.
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    
+    console.dir(loginInput);    // 이 코드를 통해 input에 입력된 값은 "value" property임을 알 수 있다.
+    console.dir(greeting);      // 이 코드를 통해 "innerText" property에 h1 내용 작성됨을 알 수 있다.
+    const username = loginInput.value;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.innerText = `Hello ${username}`;
 }
-// onLoginSubmit 함수 호출시 ()안의 argument 담아서 호출.
-// 위 argument는 event object를 담은 정보들.
 
 function onLinkClick(event){
     event.preventDefault();     // 이 코드 덕에 링크로 이동 멈추고 아래 코드들 실행된다.
