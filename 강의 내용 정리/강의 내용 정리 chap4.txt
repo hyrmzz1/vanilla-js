@@ -28,20 +28,23 @@ form이 submit되면 웹사이트가 새로고침 된다.
 -> btn의 click이 아닌 submit에 신경써보자
 -> submit을 막아야 한다!!
 
-#4.2 - 이해 더 필요
-(btn 말고) submit이란 event의 발생여부 확인해서 막아버리자!	//submit은 엔터를 누르거나 버튼을 클릭할 때 발생한다.
+#4.2
+btn에 대한 click event 말고, login-form 자체에 대해 submit event 발생여부 확인해서 막아버리자!
+//submit은 엔터를 누르거나 버튼을 클릭할 때 발생한다.
 
-브라우저의 기본 동작) 엔터를 누를 때 새로고침을 하고 form을 submit한다.
+브라우저의 기본 동작 : 엔터를 누를 때 새로고침을 하고 form을 submit한다.
+-> 이렇게 되면 입력받은 input value도 새로고침과 함께 사라짐.
 새로고침이 안되도록 하려면?
 
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("login-form input");
 
-function onLoginSubmit(tomato){
-	tomato.preventDefault();	//브라우저의 기본동작을 막아줌
-	const username = loginInput.value;	//새로고침 안됨
-	console.log(username);
-}//tomato argument.......... 모든 eventListener의 첫번째 인수는 지금 막 벌어진 일들에 대한 정보.!
+function onLoginSubmit(event){
+	event.preventDefault();
+	//브라우저의 기본동작을 막아줌
+	//기본 동작이란 어떤 function에 대해 브라우저가 기본적으로 수행하는 동작.
+	console.log(event);
+}//event argument.......... 모든 eventListener의 첫번째 인수는 지금 막 벌어진 일들에 대한 정보.!
 
 loginForm.addEventListener("submit", onLoginSubmit);
 
