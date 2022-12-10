@@ -1,12 +1,12 @@
 const loginInput = document.querySelector("#login-form input");
 const loginBtn = document.querySelector("#login-form button");
 const loginForm = document.querySelector("#login-form");
-
 /* 이 코드와 같음. loginForm 의 경우 document.getElementById("#login-form"); 로도 작성 가능.
 const loginForm = document.querySelector("#login-form");
 const loginInput = loginForm.querySelector("input");
 const loginBtn = loginForm.querySelector("button");
 */
+const link = document.querySelector("a");
 
 // querySelector 안에선 CSS selector 방식으로 검색. #~~ -> id / .~~ -> class
 
@@ -17,4 +17,11 @@ function onLoginSubmit(event){
 // onLoginSubmit 함수 호출시 ()안의 argument 담아서 호출.
 // 위 argument는 event object를 담은 정보들.
 
+function onLinkClick(event){
+    event.preventDefault();     // 이 코드 덕에 링크로 이동 멈추고 아래 코드들 실행된다.
+    alert("ready, set, go!");   // preventDefault() 없이는 해당 alert 누르면 바로 링크페이지로 이동.
+    console.dir(event);         // preventDefault() 없이는 이거 뜨자마자 창 이동-> error 발생
+}
+
 loginForm.addEventListener("submit",onLoginSubmit);
+link.addEventListener("click",onLinkClick);

@@ -44,47 +44,36 @@ function onLoginSubmit(event){
 	//브라우저의 기본동작을 막아줌
 	//기본 동작이란 어떤 function에 대해 브라우저가 기본적으로 수행하는 동작.
 	console.log(event);
-}//event argument.......... 모든 eventListener의 첫번째 인수는 지금 막 벌어진 일들에 대한 정보.!
+}//event argument.......... 모든 eventListener의 첫번째 인수는 지금 막 벌어진 일들에 대한 정보.!⭐
 
 loginForm.addEventListener("submit", onLoginSubmit);
 
 #4.3
-기본동작 막아보자
-form의 기본동작? submit.
-링크의 기본동작? 클릭시 다른 페이지로 이동하는 것.
-기본동작 막는 이유? 무엇이, 어디가 클릭됐는지 info 알고 싶을 때가 있으니까.
-=> JS가 함수 실행시키는 동시에 해당 함수 첫 인자로 object 넣어주면 된다.
+html에 <a href = "~~">Go</a> tag 이용해 링크 넣기.
 
-index.html
-<a href = "~~">Go</a>
+기본동작 막아보자.
+- form의 기본동작? submit.
+- 링크의 기본동작? 클릭시 다른 페이지로 이동하는 것.
+* 링크 기본동작 막는 이유? 무엇이, 어디가 클릭됐는지 info 알고 싶을 때가 있으니까.
+=> JS가 함수 실행시키는 동시에 해당 함수 첫 인자로 object 넣어준다.
 
-app.js
-const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("login-form input");
-const link = document.querySelector("a");	//링크 찾았다
+// 이 강의에서 추가하는 코드
+const link = document.querySelector("a");	// 링크 찾았다
 
-function onLoginSubmit(event){
-	event.preventDefault();	//브라우저의 기본동작을 막아줌
-	const username = loginInput.value;	//새로고침 안됨
-	console.log(username);
-}//tomato argument.......... 모든 eventListener의 첫번째 인수는 지금 막 벌어진 일들에 대한 정보.!
-
-function handleLinkClick(event){	//JS가 함수 실행 + 해당 함수 첫 인자로 object 넣어주면 된다.
-	event.preventDefault();	//브라우저의 기본동작 막아줌.	
-	console.dir(event);
-	//alert("clicked!");	//클릭시 알림 뜸. ok 눌러서 alert 사라지면 브라우저의 기본동작=> 링크 연결되서 다른 페이지로 연결됨.
-
+function handleLinkClick(event){	//JS가 함수 실행 + 해당 함수 첫 인자로 object 넣어줌.
+	event.preventDefault();	//브라우저의 기본동작 막아줌.	 -> 클릭해도 해당 링크로 안넘어감.
+	console.dir(event);		// 기본동작 막았기 때문에 콘솔창에서 확인 가능함.
+	//alert("clicked!");		//클릭시 알림 뜸. ok 누르면 브라우저의 기본동작 실행.
 }
 
-loginForm.addEventListener("submit", onLoginSubmit);
 link.addEventListener("click", handleLinkClick);
 
-*정리
+* 정리
 addEventListener()안의 함수는 직접이 아닌 브라우저가 실행시키고, 브라우저에서 해당 이벤트에 대한 object(정보)를 가지게 된다.
-addEventListener()안 함수에서 object에 대한 자리를 할당해주면 (ex; onLoginSubmit(event), handleLinkClick(event))
-해당 이벤트가 발생시킨 정보들에 대한 object들을 볼 수 있다. => ex; console.log(event), console.dir(event)
+addEventListener()안 함수에서 object에 대한 자리를 할당해주면 (ex; onLoginSubmit(event), handleLinkClick(event) 에서 괄호 안의 event)
+해당 이벤트가 발생시킨 정보들에 대한 object들을 볼 수 있다. -> ex; console.log(event), console.dir(event)
 이 때, 해당 이벤트가 가진 기본동작(default)들을 발생시키지 않으려면 (ex; submit 클릭시 새로고침, link click시 다음 페이지로 이동)
-preventDefault() 이용하면 된다.
+preventDefault() 이용하면 된다. -> 이 코드를 함수 맨 위에 작성해야 기본동작 막히고, 아래 코드들 실행됨.
 
 #4.4 getting username
 유저가 input에 username을 제출하면 해당 form을 없애보자.
