@@ -24,6 +24,7 @@ function onLoginSubmit(event){
     console.dir(loginInput);    // 이 코드를 통해 input에 입력된 값은 "value" property임을 알 수 있다.
     console.dir(greeting);      // 이 코드를 통해 "innerText" property에 h1 내용 작성됨을 알 수 있다.
     const username = loginInput.value;
+    localStorage.setItem("username", username); //("key", "value") username이란 키에 loginInput.value를 값으로 넣어줌.
     greeting.classList.remove(HIDDEN_CLASSNAME);
     greeting.innerText = `Hello ${username}`;
 }

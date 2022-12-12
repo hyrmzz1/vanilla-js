@@ -115,12 +115,16 @@ loginForm.addEventListener("submit", onLoginSubmit);
 #4.5 saving username
 입력받은 username을 기억해보자.
 브라우저에 무언가를 기억할 수 있게 해주는 API는 local storage!
-검사 에서 application 들어가면 Local Storage 볼 수 있음.
+검사 - application - Local Storage - fille:// 들어가면 볼 수 있음.
 
-Local Storage API method 사용해보자 (in console) 	method(key, value)
-localStorage.setItem("username", "nico")	//username 에 nico라는 값 저장
-localStorage.getItem("username")		//nico. 저장된 값 가져옴
-localStorage.removeItem("username")		//저장된 값 지움
+Local Storage API method 사용해보자 (in console)	// method(key, value) 형식 사용.
+// key-value -> dictionary 자료형. 딕셔너리는 key와 value를 한 쌍으로 갖는 자료형. 키 하나당 값 하나를 가진다.
+localStorage.setItem("username", "nico")	// username 에 nico라는 값 저장
+localStorage.setItem("username", "reem")	// nico 값 사라지고 username의 값 reem으로 바뀜.
+localStorage.getItem("username")		// reem. 저장된 값 가져옴
+localStorage.removeItem("username")		// 저장된 값 지움
+
+it looks like mini tiny DB!
 
 #4.6 loading username 어려워!!
 local storage가 비어있다면 => form 보여주면서 앞 강의에서 했던대로 쭉~
