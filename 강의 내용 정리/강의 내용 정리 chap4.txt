@@ -176,4 +176,41 @@ if (savedUsername === null){		//JS에선 ==대신 === 사용⭐⭐
 
 새로고침 해도 input 에 작성한 username 저장되기 때문에 form 안뜨고 hello username 이라는 h1 만 뜬다.
 
-#4.7 SUPER recap
+#4.7 SUPER recap ; 코드의 로직 되짚어보자.
+JS가 없는 상태의 HTML -> login-form과 greeting 모두 hidden 상태. link만 뜬다.
+HTML-JS 연결 되었을 때
+0) link.addEventListener 통해 링크(<a> tag)가 클릭될 시 onLinkClick 함수 실행됨.
+1) localStorage.getItem(USERNAME_KEY) 통해 js가 local storage에서 username 이란 key의 여부 확인
+2) if-else문
+-> username key가 없다면 -> if문 실행. (2-1)
+-> username key가 있다면 -> else문 실행. (2-2)
+
+2-1) savedUsername === null
+login-form 의 hidden 클래스를 remove 하기 때문에 login-form 나타남.
+loginForm.addEventListener("submit",onLoginSubmit); 코드가 form이 submit되길 기다리고, submit 되는 순간 js가 onLoginSubmit() 호출
+2-1-1)
+js는 함수를 호출하면서 인자를 주고, 해당 인자에는 event에 관한 정보들이 담겨있음.
+그 정보에 있는 기본 작동을 event.preventDefault(); 통해 멈춰준다. -> 브라우저 기본 작동은 새로고침이므로 새로고침 멈춰줌.
+2-1-2)
+login input에 username 작성 후 submit 눌렀을테니(required 때문에 무조건 작성되어 있어야만 submit 제출됨) 다시 form을 숨긴다.
+hidden 클래스 추가하기.
+왜냐면 이제 h1(#greeting)만 띄울거니까!
+2-1-3)
+입력받은 input 값을 변수로 만들고, 해당 변수를 local storage에 "username" key의 value로 추가함.
+local storage에 값으로 추가하는 이유? 새로고침 후에도 username 기억하기 위해.
+2-1-4)
+showGreeting() 함수 실행.
+해당 함수는 h1 id="greeting" tag의 hidden 클래스 삭제해 h1이 나타나게 한다.
+html에서 h1에 아무것도 작성하지 않았기 때문에 hidden 클래스 삭제해도 아무것도 안뜸.
+따라서 JS에서 innerText 작성해야 하는데, 함수에서 받은 인수(=local storage에 저장된 username 키의 값) 여기서 나타내주면 된다.
+greeting.classList.remove(HIDDEN_CLASSNAME);
+greeting.innerText = `Hello ${name}`;
+위 두줄의 코드 순서는 바뀌어도 상관없음. h1 innerText 생긴 후에 hidden 없애서 딱 나타나게 하는거니까!
+
+2-2) savedUsername !=== null
+local storage에 이미 username key의 값이 있다면 (로그인 전적 있을시) 로그인할 필요 없이 h1(#greeting)만 나타내면 됨.
+login-form과 greeting 둘다 hidden class 추가된 상태니까 greeting에만 hidden class 삭제해줌.
+그런데 이는 submit event가 발생했을 때와 같이 나타내면 되는거니까 (입력받은 값 local storage에 저장한 이후. 여긴 이미 저장되있는 상태)
+greeting.classList.remove(HIDDEN_CLASSNAME);
+greeting.innerText = `Hello ${name}`;
+코드를 함수화.

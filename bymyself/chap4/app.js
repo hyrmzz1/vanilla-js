@@ -49,6 +49,6 @@ if(savedUsername === null){  // username !== USERNAME_KEY. username === null은 
     loginForm.classList.remove(HIDDEN_CLASSNAME);
     loginForm.addEventListener("submit",onLoginSubmit);
 }else{
-    //login-form은 숨기고 h1(greeting) 바로 뜨도록
+    //login-form은 숨기고 h1(#greeting)이 바로 뜨도록
     showGreeting(savedUsername);
 }
