@@ -10,6 +10,7 @@ const link = document.querySelector("a");
 const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";  // hidden 반복적으로 쓰이니 변수화. 오타날 수 있으니까.
+const USERNAME_KEY = "username";
 /* 변수명을 대문자로 쓰는 경우?
 1) string만 포함된 변수
 2) 중요한 변수가 아닐 때 (loginForm, loginInput 같은 것들은 중요한 변수.) */
@@ -24,9 +25,8 @@ function onLoginSubmit(event){
     console.dir(loginInput);    // 이 코드를 통해 input에 입력된 값은 "value" property임을 알 수 있다.
     console.dir(greeting);      // 이 코드를 통해 "innerText" property에 h1 내용 작성됨을 알 수 있다.
     const username = loginInput.value;
-    localStorage.setItem("username", username); //("key", "value") username이란 키에 loginInput.value를 값으로 넣어줌.
-    greeting.classList.remove(HIDDEN_CLASSNAME);
-    greeting.innerText = `Hello ${username}`;
+    localStorage.setItem(USERNAME_KEY, username); //("key", "value") username이란 키에 loginInput.value를 값으로 넣어줌.
+    showGreeting(username);
 }
 
 function onLinkClick(event){
@@ -35,5 +35,20 @@ function onLinkClick(event){
     console.dir(event);         // preventDefault() 없이는 이거 뜨자마자 창 이동-> error 발생
 }
 
-loginForm.addEventListener("submit",onLoginSubmit);
 link.addEventListener("click",onLinkClick);
+
+function showGreeting(name){
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.innerText = `Hello ${name}`;
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null){  // username !== USERNAME_KEY. username === null은 입력된 값이 null이라는 값이란 의미.
+    //login-form 나타나도록
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit",onLoginSubmit);
+}else{
+    //login-form은 숨기고 h1(greeting) 바로 뜨도록
+    showGreeting(savedUsername);
+}

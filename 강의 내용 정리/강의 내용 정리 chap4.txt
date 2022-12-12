@@ -95,7 +95,7 @@ const loginInput = document.querySelector("login-form input");
 const greeting = document.querySelector("#greeting");
 const HIDDEN_CLASSNAME = "hidden";	
 // 변수명 대문자로 쓰는 경우?
-// 1. string만 포함된 변수. string을 저장하고 싶을 때 사용. **이게 일반적 이유
+// 1. string만 포함된 변수. string을 저장하고 싶을 때 사용. **이게 일반적 이유! string 오타나면 안되기 때문. 변수명이 오타나면 JS에서 에러 띄워줘 오타 알아차릴 수 있음.
 // 2. loginForm, loginInput처럼 중요한 정보를 담지 않았을 때. (중요한 변수 아닐 때)
 
 function onLoginSubmit(event){
@@ -118,7 +118,7 @@ loginForm.addEventListener("submit", onLoginSubmit);
 검사 - application - Local Storage - fille:// 들어가면 볼 수 있음.
 
 Local Storage API method 사용해보자 (in console)	// method(key, value) 형식 사용.
-// key-value -> dictionary 자료형. 딕셔너리는 key와 value를 한 쌍으로 갖는 자료형. 키 하나당 값 하나를 가진다.
+// key-value -> dictionary 자료형. 딕셔너리는 key와 value를 한 쌍으로 갖는 자료형. 키 하나당 값 하나를 가진다. (1:1 대응)
 localStorage.setItem("username", "nico")	// username 에 nico라는 값 저장
 localStorage.setItem("username", "reem")	// nico 값 사라지고 username의 값 reem으로 바뀜.
 localStorage.getItem("username")		// reem. 저장된 값 가져옴
@@ -126,17 +126,23 @@ localStorage.removeItem("username")		// 저장된 값 지움
 
 it looks like mini tiny DB!
 
-#4.6 loading username 어려워!!
-local storage가 비어있다면 => form 보여주면서 앞 강의에서 했던대로 쭉~
-local storage에 user 정보가 있다면 => form 숨기고 h1 요소 보여주기
+#4.6 loading username
+위 강의에서 
+const username = loginInput.value;
+localStorage.setItem("username", username);
+코드를 통해 input에서 입력받은 값을 username이란 변수에 저장했고,
+그 변수를 username이란 key의 value로 저장하였다.
 
-1) local storage에 user 정보 유무 확인하기
+local storage가 비어있다면 (loginInput 입력 X) -> form 보여주면서 앞 강의에서 했던대로 쭉~
+local storage에 user 정보가 있다면 (loginInput 입력-> username 有) -> form 숨기고 h1 요소 보여주기
+
+-1) local storage에 user 정보 유무 확인하기
 <app.js>
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("login-form input");
 const greeting = document.querySelector("#greeting");
-const HIDDEN_CLASSNAME = "hidden";	
-//변수명 대문자로 쓰는 경우? (일반적으로는) 1. string만 포함된 변수. string을 저장하고 싶을 때 사용. 2. loginForm, loginInput처럼 중요한 정보를 담지 않았을 때. (중요한 변수 아닐 때)
+
+const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";	//두번 이상 사용되는 string 무조건 변수화 (실수하면 안되는 string 이니까!!)
 
 function onLoginSubmit(event){
@@ -147,21 +153,23 @@ function onLoginSubmit(event){
 	localStorage.setItem(USERNAME_KEY)
 	/*greeting.innerText = "Hello "+username;	//`Hello ${username}` 과 같음. ${} 안에 변수명 들어가면 된다. ``<-백틱 이라고 한다! 백틱으로 전체 감싸주기.
 	greeting.classList.remove(HIDDEN_CLASSNAME);*/
-	paintGreetings(username);
+	paintGreetings(username);	// 여러줄의 코드가 두번이나 반복되어 사용되므로 함수화.
 }
+
+function paintGreetings(){}
 
 loginForm.addEventListener("submit", onLoginSubmit);
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 //html에서 form이랑 greeting 모두 숨긴 채로 시작하는게 나을듯. =>hidden 넣어주기
-if (savedUsername === null){		//JS에선 ==대신 === 사용
+if (savedUsername === null){		//JS에선 ==대신 === 사용⭐⭐
 	//show the form
 	loginForm.classList.remove(HIDDEN_CLASSNAME);
 	loginForm.addEventListener("submit", onLoginSubmit);
 }else{
 	//show the greetings
-	/*greeting.innerText = "Hello "+username;9 
+	/*greeting.innerText = "Hello "+username;
 	greeting.classList.remove(HIDDEN_CLASSNAME);*/ //위랑 똑같은 코드이므로 함수로 만들어버리자. =>function paintGreetings(username){} 안에 이 코드 넣어버리자
 	paintGreetings(username);
 }
