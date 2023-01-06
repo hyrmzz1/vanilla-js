@@ -2,7 +2,8 @@
 <img src="./FF417D2D-D43C-471D-A114-F601D7C26A3B.jpeg"/>
 
 ## TA's hint
-- <form>: 사용자로부터 입력받을 수 있는 입력 form을 정의할 때 사용하는 태그. 입력한 정보를 제출할 수 있음.<br>
+- form<br>
+: 사용자로부터 입력받을 수 있는 입력 form을 정의할 때 사용하는 태그. 입력한 정보를 제출할 수 있음.<br>
 - querySelector<br>
 : CSS 선택자 형식(class->.className, id->#idName, 하위 태그는 띄어쓰기 하고 작성 등..)을 사용해 HTML의 요소를 JS에서 사용하도록 가져올 수 있음.<br>
 : 같은 클래스명을 가지고 있을 경우 가장 첫번째 요소만을 가지고 옴. 모든 요소 가져오려면? querySelectorAll 사용.<br>
