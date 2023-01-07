@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS casino</title>
+    <title>Let's guess🧐</title>
     <link rel="stylesheet" href="style.css">
     </head>
 
   <body>
     <h1>Random Number Game</h1>
-    <h3>Generate a Number between 0 and <span class="maxNum"></span></h3>
-    <form class="gameForm">
-      <input class="rangeInput" type="range" min="0" max="200" />
-    </form>
-    <div class="numBox">
-      Guess the number:&nbsp;
-      <form class="numForm">
-        <input class="inputNum" type="number" style="width: 50px" />
-        <button>play!</button>
+    <h4>** Only integer **</h4>
+    <h3>Generate a number between 0 and <input id="maxNum" type="number" min="0"></h2>
+    <div>
+      <form>
+        <label for="guessedNum">Guess the number: </label>
+        <input type="number" id="guessedNum" min="0">
+        <button>Play!</button>
       </form>
-    </div>
-    <div class="paintChose"></div>
-    <h4 class="paintResult"></h4>
-
-    <script src="index.js"></script>
+    <!-- input에서 required나 maxLength 등의 유효성검사기능 사용하려면 form 내부에 있어야 함. -->
+    <!-- js 코드 div일땐 작동하지만 form이면 작동하지 않는 이유? -->
+    <!-- 왜냐하면 input 안의 button을 누르거나 type이 submit인 input을 클릭(또는 엔터)하면 form이 submit되고 브라우저 새로고침됨. -->
+    <!-- 새로고침되기 때문에 원래 js 파일에 있던 console.log 코드 작동 안하고 에러뜨는 것임. -->
+        <div id="gameResult"><span></span></div>
+      </div>
+    <script src="app.js"></script>
   </body>
 </html>
