@@ -2,3 +2,9 @@ h4{
     font-style: italic;
     color: rgba(0, 0, 0, 0.7);
 }
+
+.hidden{
+    display: none;
+    /* visiility: none; 은 공간은 그대로 두되 보이지 않게.
+    display: none; 은 공간까지 사라지며 보이지 않게. */
+}

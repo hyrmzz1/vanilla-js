@@ -18,12 +18,15 @@
         <input type="number" id="guessedNum" min="0">
         <button>Play!</button>
       </form>
-    <!-- input에서 required나 maxLength 등의 유효성검사기능 사용하려면 form 내부에 있어야 함. -->
-    <!-- js 코드 div일땐 작동하지만 form이면 작동하지 않는 이유? -->
-    <!-- 왜냐하면 input 안의 button을 누르거나 type이 submit인 input을 클릭(또는 엔터)하면 form이 submit되고 브라우저 새로고침됨. -->
-    <!-- 새로고침되기 때문에 원래 js 파일에 있던 console.log 코드 작동 안하고 에러뜨는 것임. -->
-        <div id="gameResult"><span></span></div>
-      </div>
+      <!-- input에서 required나 maxLength 등의 유효성검사기능 사용하려면 form 내부에 있어야 함. -->
+      <!--
+        위의 form이 div라면 js에서 작동하지만, form이면 내부 코드 작동하지 않는 이유?
+        왜냐하면 input 안의 button을 누르거나 type이 submit인 input을 클릭(또는 엔터)하면,
+        form이 submit되고 브라우저 새로고침됨. (=브라우저의 기본 동작)
+        새로고침으로 인해 원래 js 파일에 있던 코드 작동 안하고 에러뜨는 것임.
+      -->
+    </div>
+    <div id="gameResult" class="hidden"><span></span></div>
     <script src="app.js"></script>
   </body>
 </html>
