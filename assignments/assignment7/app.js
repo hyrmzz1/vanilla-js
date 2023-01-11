@@ -12,7 +12,7 @@ function onNumSubmit(event){
     event.preventDefault();
 
     // span에는 guessedNum 값 출력되야함.
-    const guessedNum = guessedNumInput.value;
+    const guessedNum = parseInt(guessedNumInput.value, 10);
     const maxNum = maxNumInput.value;
     const randomNum = Math.round(Math.random()*maxNum);
     result.innerHTML = `You chose: ${guessedNum}, the machine chose: ${randomNum}<br>
