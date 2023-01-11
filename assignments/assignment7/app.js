@@ -14,13 +14,16 @@ function onNumSubmit(event){
     // span에는 guessedNum 값 출력되야함.
     const guessedNum = guessedNumInput.value;
     const maxNum = maxNumInput.value;
-    result.innerHTML = `You chose: ${guessedNum}, the machine chose: ${Math.round(Math.random()*maxNum)}`;
+    const randomNum = Math.round(Math.random()*maxNum);
+    result.innerHTML = `You chose: ${guessedNum}, the machine chose: ${randomNum}<br>
+    <strong>${guessedNum === randomNum? "You won😎" : "You lost👻"}</strong>`;
     /* 0부터 maxNum 사이 float 랜덤으로 얻음.
     정수로 바꾸려면 floor(내림), round(반올림), ceil(올림) 써야하는데
     floor 쓸 경우 maxNum이 안나오고, ceil 쓸 경우 0 나올 가능성 넘 적어져서 round 사용했음.*/
-    //innerText vs innerHTML?
 
     // you won - you lost는 조건문 사용
+    // 백틱(`) 내부에서 조건문은 삼항 연산자 사용하여 작성. `${조건 ? 참 : 거짓}`;
+    // JS에선 === 사용
 
     // play 버튼 누르면 #gameResult span 내부 글씨 보이게
     result.classList.remove(HIDDEN_CLASSNAME);
