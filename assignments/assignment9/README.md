@@ -1,4 +1,5 @@
 # Assignment9
+<img src="./assignment9.gif"/>
 
 ## TA's hint
 - linear-gradient : 선형 그러데이션을 만들어주는 CSS 함수.
