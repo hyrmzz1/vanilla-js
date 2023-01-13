@@ -26,9 +26,21 @@ result.innerHTML = `You chose: ${guessedNum}, the machine chose: ${randomNum}<br
     <strong>${guessedNum === randomNum? "You won😎" : "You lost👻"}</strong>`;
 ```
 위 코드에서 result.innerText가 아닌 innerHTML을 사용한 이유?<br>
-innerHTML에선 br 이나 strong 같은 html 코드 또는 마크업을 가져오거나 태그와 함께 입력할 수 있기 때문. 
+innerHTML에선 br 이나 strong 같은 html 코드 또는 마크업을 가져오거나 태그와 함께 입력할 수 있기 때문. tag가 적용되어 출력된다.<br>
+```
+result.innerText = `You chose: ${guessedNum}, the machine chose: ${randomNum}<br>
+    <strong>${guessedNum === randomNum? "You won😎" : "You lost👻"}</strong>`;
+```
+innerText는 text 값만 다루기 때문에 br 이나 strong 등을 적용시키지 않고 text 값으로 인식해 그대로 출력함. 
 - JS 에선 ==, != 가 아닌 ===, !== 을 사용한다. 잊지말자!<br>
 ==은 값만을 비교하고, ===은 값과 자료형 모두를 비교. JS에서만 사용.
 - input value의 type은 string이다. 이는 input 자체의 type과는 무관!<br>헷갈릴 땐 typeof를 사용하여 input value의 타입 알아보자.
+- Math.random()*maxNum 은 0 이상 maxNum 미만의 범위에서 랜덤한 수를 추출한다.
+ maxNumInput의 value인 maxNum도 string인데, Math.random()*maxNum 은 왜 잘 작동할까? (maxNum 이 number여야 0 <= < maxNum 범위의 랜덤한 수를 추출하는거 아닐까?) 
+```
+const maxNum = maxNumInput.value;
+const randomNum = Math.round(Math.random()*maxNum);
+``` 
+이유는 Type coercion(유형 강제 변환) 때문. Type conersion(유형 변환)도 참고.
 - 백틱 내부에선 if-else문이 아닌 삼항연산자를 사용하자.<br>
 참, 거짓에 문자열이 들어간다면 "" 로 감싸줄 것.
