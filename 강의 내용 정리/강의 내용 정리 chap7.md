@@ -31,8 +31,7 @@ todoForm.addeventListener("submit", handleTodoSubmit);
 ```
 
 ## 7.1 Adding To-Do
-todo를 input에 입력한 후 submit 하면<br>
-input 하단에 작성했던 todo가 뜨도록 해보자.
+todo를 input에 입력한 후 submit 하면 input 하단에 작성했던 todo가 뜨도록 해보자.
 ```
 function paintTodo(newTodo){   // todo를 그리는 역할
     const li = document.createElement("li");        // <ul id="todo-list></ul> 내부에 들어갈 <li>를 만들어줌
