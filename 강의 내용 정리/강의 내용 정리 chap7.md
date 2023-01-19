@@ -8,14 +8,14 @@ todo 입력 -> form, input 필요.<br>
 // <ul>과 <ol>의 항목들은 <li> 태그 사용하여 작성. //list item
 
 ```
-//index.html
+// index.html
 <form id="todo-form>
     <input type="text" placeholder="write todo and press enter" required>
 </form>
 <ul id="todo-list></ul>
 ```
 ```
-//todo.js
+// todo.js
 const todoForm = document.~;    // html의 form과 ul을 js에 연결. 
 const toDoList = document.~;    // querySelector 보단 getElementId 사용이 더 편할듯
 const todoInput = todoForm.querySelector("input");
@@ -33,6 +33,7 @@ todoForm.addeventListener("submit", handleTodoSubmit);
 ## 7.1 Adding To-Do
 todo를 input에 입력한 후 submit 하면 input 하단에 작성했던 todo가 뜨도록 해보자.
 ```
+// todo.js
 function paintTodo(newTodo){   // todo를 그리는 역할
     const li = document.createElement("li");        // <ul id="todo-list></ul> 내부에 들어갈 <li>를 만들어줌
     const span = document.createElement("span");    // <span>을 만들어줌.
@@ -54,6 +55,36 @@ function handleTodoSubmit(event){
 - 새로고침 할 시 todo 저장 안됨.
 
 ## 7.2 Deleting To-Do
+todo 옆에 x 버튼을 만들어, 누르면 todo가 지워지도록 해보자.
+```
+<ul id="todo-list>
+    <li>
+        <span></span>   // newTodo가 여기에 들어감. js 코드 통해 구현 완료. (#7.1)
+        <button>X</button>  // 이걸 js 로 구현해보자.
+    </li>
+</ul>
+```
+```
+// todo.js
+function deleteTodo(event){     // () 내부에 event를 넣음으로써 event에 대한 정보 얻을 수 있다.
+    const li = event.target.parentElement;  // 어떤 li 옆의 btn이 클릭됐는지 파악가능한 변수
+    li.remove();    // 해당 li 삭제
+}
+
+function paintTodo(newTodo){
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.innerText = newTodo;
+    const btn = document.createElement("button");
+    btn.innerText = "❌";
+    btn.addEventListener("click", deleteTodo);  // 버튼 클릭시 todo 삭제되는 이벤트 만들기.
+    li.appendChild(span);
+    li.appendChild(btn);
+    todoList.appendChild(li);    //<ul><li><span></span><btn></btn></li></ul>
+}
+```
+
+
 
 ## 7.3 Saving To-Do
 ## 7.4 Loading To-Do (1)
