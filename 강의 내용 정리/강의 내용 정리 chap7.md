@@ -34,7 +34,10 @@ todoForm.addeventListener("submit", handleTodoSubmit);
 todo를 input에 입력한 후 submit 하면 input 하단에 작성했던 todo가 뜨도록 해보자.
 ```
 // todo.js
-function paintTodo(newTodo){   // todo를 그리는 역할
+function paintTodo(newTodo){   // todo를 그리는 역할.
+    /* ()안의 newTodo는 그냥 text. 아래 함수의 변수 아님!
+    그럼에도 위의 parameter가 handleTodoSubmit()에서 선언된 변수 newTodo처럼 작동하는 이유?
+    handleTodoSubmit() 내의 paintTodo(newTodo); 코드 때문. 이 코드가 보내준 것임! */
     const li = document.createElement("li");        // <ul id="todo-list></ul> 내부에 들어갈 <li>를 만들어줌
     const span = document.createElement("span");    // <span>을 만들어줌.
     li.appendChild(span);   // <li><span></span></li>가 되도록. <span>을 <li>의 자식으로 만듬.
@@ -83,10 +86,16 @@ function paintTodo(newTodo){
     todoList.appendChild(li);    //<ul><li><span></span><btn></btn></li></ul>
 }
 ```
-
-
-
+ 
 ## 7.3 Saving To-Do
+todo를 실제로 저장되게 해보자. (새로고침해도 사라지지 않도록)
+-> 브라우저에 저장하려면? Local Storage 사용!
+
+todo를 array로 만들자. todo가 입력(submit)되면 array로 push 되게끔!
+* localStorage엔 array 저장 불가. 텍스트만 저장 가능.
+-> saveTodos() function을 생성해
+
+
 ## 7.4 Loading To-Do (1)
 ## 7.5 Loading To-Do (2)
 ## 7.6 Deleting To-Do (1)
