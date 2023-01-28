@@ -59,10 +59,11 @@ function handleTodoSubmit(event){
 
 ## 7.2 Deleting To-Do
 todo 옆에 x 버튼을 만들어, 누르면 todo가 지워지도록 해보자.
+-> x 버튼은 click event를 기다려야!
 ```
 <ul id="todo-list>
     <li>
-        <span></span>   // newTodo가 여기에 들어감. js 코드 통해 구현 완료. (#7.1)
+        <span></span>   // newTodo가 여기에 들어감. js 코드 통해 구현 완료. (lec #7.1)
         <button>X</button>  // 이걸 js 로 구현해보자.
     </li>
 </ul>
@@ -94,7 +95,10 @@ todo를 실제로 저장되게 해보자. (새로고침해도 사라지지 않�
 todo를 array로 만들자. todo가 입력(submit)되면 array로 push 되게끔!
 * localStorage엔 array 저장 불가. 텍스트만 저장 가능.
 -> saveTodos() function을 생성해
+-> 저장만 할 뿐 새로고침시 화면에 나타나진 않음.
 
+array로 저장하려면? 일단 JSON.stringify(); 사용.
+// 뭐든 string으로 바꿔줌. string으로 바뀌면 중복도 가능
 
 ## 7.4 Loading To-Do (1)
 ## 7.5 Loading To-Do (2)
