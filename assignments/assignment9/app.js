@@ -18,3 +18,13 @@ const colors = [
     "#ffd32a",
     "#ff3f34"
   ];
+
+const btn = document.querySelector("button");
+
+function onBtnClick(){
+    // 색상 1
+    // 색상 2
+    // 색상 1, 2로 배경색 변환
+}
+
+btn.addEventListener("click", onBtnClick)
