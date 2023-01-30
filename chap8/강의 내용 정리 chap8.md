@@ -1,6 +1,7 @@
 # CHAP 8. WEATHER
 html에 weathers.js import 하는건 기본!
-## 8.0 Geolocation (유무선망에 연결된 기기의 지리적 위치 정보)
+## 8.0 Geolocation
+**Geolocation란 유무선망에 연결된 기기의 지리적 위치 정보.**<br>
 사용자(기기)의 위치의 위도와 경도를 추출하자.<br>
 `geolocation.getCurrentPosition()` 함수는 장치의 현재 위치 가져오게 함.
 ```
