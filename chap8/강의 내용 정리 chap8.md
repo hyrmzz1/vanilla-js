@@ -33,7 +33,7 @@ navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
 **API란 다른 서버와 이야기할 수 있도록, 즉 프로그램들이 서로 상호작용하도록 도와주는 매개체.**<br>
 위에서 얻은 위도와 경도를 이용해 이 위치가 어느 장소인지 알아내보자.<br><br>
 
-우선 https://openweathermap.org 에서 계정을 만든 후 API 메뉴로 들어가 <u>Current Weather Data</u> API doc 눌러 해당 API에 대한 문서 열람할 것.<br>
+우선 https://openweathermap.org 에서 계정을 만든 후 API 메뉴로 들어가 **Current Weather Data** API doc 눌러 해당 API에 대한 문서 열람할 것.<br>
 **API calls**에 나와있는 url을 사용하면 된다.
 ```
 https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
@@ -52,7 +52,7 @@ function onGeoSuccess(pos){
     const crd = pos.coords;             // coords 만 변수화 할 수도 있고,
     const lon = pos.coords.logitude;    // coords.logitude까지 변수화 할 수도 있음.
     const lat = crd.latitude;
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
     // 섭씨온도의 경우 미터법 단위 사용해야 하므로 매개변수 추가
 
     fetch(url)
