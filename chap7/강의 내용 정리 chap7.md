@@ -6,6 +6,7 @@ todo 입력 -> form, input 필요.<br>
 참고<br>
 `<ul>`은 unoredered list. `<ol>`은 ordered list.<br>
 `<ul>`과 `<ol>`의 항목들은 `<li>` 태그 사용하여 작성. //list item
+<br>
 
 ```
 // index.html
@@ -35,9 +36,11 @@ todo를 input에 입력한 후 submit 하면 input 하단에 작성했던 todo�
 ```
 // todo.js
 function paintTodo(newTodo){   // todo를 그리는 역할.
-    /* ()안의 newTodo는 그냥 text. 아래 함수의 변수 아님!
+    /* 
+    ()안의 newTodo는 그냥 text. 아래 함수의 변수 아님!
     그럼에도 위의 parameter가 handleTodoSubmit()에서 선언된 변수 newTodo처럼 작동하는 이유?
-    handleTodoSubmit() 내의 paintTodo(newTodo); 코드 때문. 이 코드가 보내준 것임! */
+    handleTodoSubmit() 내의 paintTodo(newTodo); 코드 때문. 이 코드가 보내준 것임! 
+    */
     const li = document.createElement("li");        // <ul id="todo-list></ul> 내부에 들어갈 <li>를 만들어줌
     const span = document.createElement("span");    // <span>을 만들어줌.
     li.appendChild(span);   // <li><span></span></li>가 되도록. <span>을 <li>의 자식으로 만듬.
