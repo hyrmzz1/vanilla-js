@@ -2,10 +2,10 @@
 ## 7.0 Setup
 todo.js 를 만들고, 우리가 필요한 것을 생각해보자.<br>
 todo 입력 -> form, input 필요.<br>
-입력한 todo를 list로 만들기 -> ul, li 필요.<br>
+입력한 todo를 list로 만들기 -> `<ul>, <li>` 필요.<br>
 // 참고
-// <ul>은 unoredered list. <ol>은 ordered list.<br>
-// <ul>과 <ol>의 항목들은 <li> 태그 사용하여 작성. //list item
+// `<ul>`은 unoredered list. `<ol>`은 ordered list.<br>
+// `<ul>`과 `<ol>`의 항목들은 `<li>` 태그 사용하여 작성. //list item
 
 ```
 // index.html
