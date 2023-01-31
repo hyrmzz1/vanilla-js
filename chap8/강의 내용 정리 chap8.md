@@ -42,7 +42,7 @@ https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API k
 // 코드 내에서 변수를 통해 넣을 수도 있다.
 ```
 <br>
-JS에서 url 불러오는 방법은 `fetch()`<br>
+JS에서 url 불러오려면 `fetch()` 사용.<br>
 이를 통해 url에 갈 필요없이 검사-network-preview 에서 확인 가능.<br>
 해당 url에 나오는 정보들을 이용해보자.
 
