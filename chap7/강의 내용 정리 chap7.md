@@ -1,11 +1,11 @@
 # CHAP 7. TO-DO LIST
 ## 7.0 Setup
 todo.js 를 만들고, 우리가 필요한 것을 생각해보자.<br>
-todo 입력 -> form, input 필요.<br>
-입력한 todo를 list로 만들기 -> `<ul>, <li>` 필요.<br>
-// 참고
-// `<ul>`은 unoredered list. `<ol>`은 ordered list.<br>
-// `<ul>`과 `<ol>`의 항목들은 `<li>` 태그 사용하여 작성. //list item
+- todo 입력 -> form, input 필요.<br>
+- 입력한 todo를 list로 만들기 -> `<ul>, <li>` 필요.<br><br>
+참고<br>
+`<ul>`은 unoredered list. `<ol>`은 ordered list.<br>
+`<ul>`과 `<ol>`의 항목들은 `<li>` 태그 사용하여 작성. //list item
 
 ```
 // index.html
@@ -58,7 +58,7 @@ function handleTodoSubmit(event){
 - 새로고침 할 시 todo 저장 안됨.
 
 ## 7.2 Deleting To-Do
-todo 옆에 x 버튼을 만들어, 누르면 todo가 지워지도록 해보자.
+todo 옆에 x 버튼을 만들어, 누르면 todo가 지워지도록 해보자.<br>
 -> x 버튼은 click event를 기다려야!
 ```
 <ul id="todo-list>
@@ -89,15 +89,15 @@ function paintTodo(newTodo){
 ```
  
 ## 7.3 Saving To-Do
-todo를 실제로 저장되게 해보자. (새로고침해도 사라지지 않도록)
+todo를 실제로 저장되게 해보자. (새로고침해도 사라지지 않도록)<br>
 -> 브라우저에 저장하려면? Local Storage 사용!
 
-todo를 array로 만들자. todo가 입력(submit)되면 array로 push 되게끔!
-* localStorage엔 array 저장 불가. 텍스트만 저장 가능.
--> saveTodos() function을 생성해
--> 저장만 할 뿐 새로고침시 화면에 나타나진 않음.
+todo를 array로 만들자. todo가 입력(submit)되면 array로 push 되게끔!<br>
+localStorage엔 array 저장 불가. 텍스트만 저장 가능.<br>
+-> saveTodos() function을 생성해<br>
+-> 저장만 할 뿐 새로고침시 화면에 나타나진 않음.<br>
 
-array로 저장하려면? 일단 JSON.stringify(); 사용.
+array로 저장하려면? 일단 JSON.stringify(); 사용.<br>
 // 뭐든 string으로 바꿔줌. string으로 바뀌면 중복도 가능
 
 ## 7.4 Loading To-Do (1)
