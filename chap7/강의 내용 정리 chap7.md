@@ -90,21 +90,70 @@ function paintTodo(newTodo){
     todoList.appendChild(li);    //<ul><li><span></span><btn></btn></li></ul>
 }
 ```
- 
+
 ## 7.3 Saving To-Do
 todo를 실제로 저장되게 해보자. (새로고침해도 사라지지 않도록)<br>
 -> 브라우저에 저장하려면? Local Storage 사용!
+
+순서) todo 저장(local storage에) -> todo 불러오기 (화면에 표시) //이번 강의에선 todo 저장하는 법을 배운다.
 
 todo를 array로 만들자. todo가 입력(submit)되면 array로 push 되게끔!<br>
 localStorage엔 array 저장 불가. 텍스트만 저장 가능.<br>
 -> saveTodos() function을 생성해<br>
 -> 저장만 할 뿐 새로고침시 화면에 나타나진 않음.<br>
 
-array로 저장하려면? 일단 JSON.stringify(); 사용.<br>
+a,b,c 에서 ["a","b","c"]로 나타나게 array로 저장하려면? 일단 JSON.stringify(); 사용.<br>
 // 뭐든 string으로 바꿔줌. string으로 바뀌면 중복도 가능
+// a,b,c 로 나타날 땐 a 다시 치면 a로 바뀜.
 
 ## 7.4 Loading To-Do (1)
+순서) todo 저장(local storage에) -> todo 불러오기 (화면에 표시) // local storage에만 있는 todo를 화면으로 불러오자.
+
 ## 7.5 Loading To-Do (2)
+
 ## 7.6 Deleting To-Do (1)
+문제점
+todo를 화면에서 지워도 local storage엔 그대로 존재.
+같은 내용의 todo가 여러개일 경우 local storage에서 어떤 걸 삭제해야하는지 모름. 
+-> todo에게 id 부여. text가 아닌 object로 만들자.
+[{"a","b","c","a"}] 에서 [{id:~~, text:"a"}] 같이.
+id는 랜덤하게.  //id로 각각의 li item을 구분한다.
+
+x를 눌러을때 li가 삭제되려면 그 id를 알아야한다.
+
 ## 7.7 Deleting To-Do (2)
+array에서 item을 삭제하는 법을 알아보자.
+-> 삭제하려는 item을 제외하고 새로 array를 만드는 것!!
+
+`filter()` 는 `forEach()`와 비슷하다.
+
+`filter()`를 사용할 때, array의 item을 유지하고 싶다면 함수 내에서 true를, 유지하고 싶지 않다면 false를 return하면 된다.
+```
+const arr = ["1","2","3","4"];
+
+funcion sextFilter(talkingPotato){return !== 3;} // ()안의 문구는 뭐가 됐든 상관없음. 차피 js가 array의 각 item을 이 함수의 첫번째 인자로 전달해주니까.
+
+arr.filter(sexyFilter); // ["1","2","4"]
+```
+```
+const arr = [234, 22234, 331, 4352, 462, 98765, 4544]
+
+function sexyFunc(tomato){return tomato >= 1000;}   //return 값이 true인 item들만 반환된다.
+
+arr.filter(sexyFunc);   // [22234, 4352, 98765, 4544]
+```
+
+```
+const todo = [{text:"haha"}, {text:"hoho"}];
+
+function sexyFilter(deltodo){    // deltodo가 들어가있는 () 안엔 아무 문구나 들어가도 된다.
+    return deltodo.text !== "hoho"; // array(todo)의 각 item이 인수로 전달됨. text가 hoho가 아니여야 true.
+}
+
+todo.filter(sexyFilter);    //[{text:"haha"}]
+```
+
 ## 7.8 Deleting To-Do (3)
+지울 때마다(X를 클릭할 때마다) 해당 li가 다른 id를 가졌다는 것을 알 수 있고, id 통해 local storage에서도 해당 todo 삭제 가능.
+
+id는 number이므로 parseInt 통해 타입 변환해주기.
